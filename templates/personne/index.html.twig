@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PersonneController!{% endblock %}
+
+{% block body %}
+    {% if personne is defined %}
+        La personne {{adjectif}} est: 
+        {{personne.prenom}} {{personne.nom}},<br>
+        son id: {{personne.id}} <br>
+        son email: {{personne.email}} <br>
+        son adresse: {{personne.adresse.rue}}
+                     {{personne.adresse.codePostal}} 
+                     {{personne.adresse.ville}}
+    {% endif %}
+{% endblock %}

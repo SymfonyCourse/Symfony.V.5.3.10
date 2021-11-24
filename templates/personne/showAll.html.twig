@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des personnes{% endblock %}
+{% block body %}
+    <h1>Personnes</h1>
+    {% if personnes is defined %} 
+        <table class="table table-striped"> 
+        <thead> 
+            <tr> <th>Nom</th><th>Prénom</th><th>Actions</th> </tr> 
+        </thead> 
+        <tbody> 
+            {% for p in personnes %} 
+                <tr> 
+                    <td>{{ p.nom }}</td><td>{{ p.prenom }}</td> 
+                    <td> <a href="{{path('personne_show', {'id':p.id})}}" 
+                            class="btn btn-primary">Détails</a> 
+                    </td> 
+                </tr> 
+            {% endfor %} 
+        </tbody> 
+        </table> 
+    {% else %}
+        <p>Aucune personne enregistrée</p> 
+    {% endif %}
+{% endblock %}
